@@ -1,0 +1,162 @@
+/* styleLogin.css - Classic Navy & Beige Spatial */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fdfbf7; /* Premium Beige */
+    position: relative;
+    overflow: hidden;
+    perspective: var(--perspective);
+}
+
+.login-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 60px 45px;
+    background: rgba(255, 255, 255, 0.7); /* Frosted Glass */
+    backdrop-filter: blur(30px);
+    border-radius: 40px;
+    border: 1px solid rgba(30, 58, 138, 0.1);
+    box-shadow: 0 40px 80px rgba(30, 58, 138, 0.08);
+    z-index: 10;
+    position: relative;
+    animation: fadeInUpCinematic 1s var(--transition-cinematic);
+    transform-style: preserve-3d;
+}
+
+@keyframes fadeInUpCinematic {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.login-container:hover {
+    transform: rotateX(3deg) rotateY(-2deg) translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 50px 100px rgba(30, 58, 138, 0.12);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.login-header h2 {
+    font-size: 42px;
+    font-weight: 950;
+    color: var(--primary);
+    margin-bottom: 15px;
+    letter-spacing: -2px;
+}
+
+.login-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    transform: translateZ(20px);
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 18px 25px;
+    background: #fdfbf7;
+    border: 1px solid rgba(30, 58, 138, 0.1);
+    border-radius: 18px;
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--transition-cinematic);
+}
+
+.input-group input:focus {
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 30px var(--primary-glow);
+    transform: scale(1.02) translateZ(10px);
+    outline: none;
+}
+
+.btn-login {
+    background: var(--primary);
+    color: white;
+    width: 100%;
+    padding: 20px;
+    border-radius: 18px;
+    border: none;
+    font-size: 18px;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition-cinematic);
+    transform: translateZ(40px);
+    box-shadow: 0 10px 25px var(--primary-glow);
+}
+
+.btn-login:hover {
+    background: #172554;
+    transform: translateY(-5px) translateZ(50px);
+    box-shadow: 0 15px 35px var(--primary-glow);
+}
+
+.signup-link {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--text-muted);
+    font-weight: 600;
+    transform: translateZ(15px);
+}
+
+.signup-link a {
+    color: var(--primary);
+    font-weight: 850;
+    text-decoration: none;
+    margin-left: 8px;
+    transition: var(--transition-cinematic);
+}
+
+.signup-link a:hover {
+    color: #172554;
+    text-decoration: underline;
+}
+
+/* Bright Soft Shapes */
+.shape {
+    position: absolute;
+    filter: blur(140px);
+    opacity: 0.12;
+    z-index: 0;
+}
+
+.shape-1 {
+    width: 700px; height: 700px;
+    background: var(--primary);
+    top: -15%; left: -10%;
+    animation: floatingShape 20s infinite alternate ease-in-out;
+}
+
+.shape-2 {
+    width: 800px; height: 800px;
+    background: var(--secondary);
+    bottom: -20%; right: -10%;
+    animation: floatingShape 25s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatingShape {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(150px, 100px) scale(1.2); }
+}

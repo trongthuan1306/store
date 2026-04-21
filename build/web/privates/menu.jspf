@@ -1,0 +1,98 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8" %>
+
+<link href="${pageContext.request.contextPath}/css/styleGlobal.css" rel="stylesheet" type="text/css"/>
+<link href="${pageContext.request.contextPath}/css/styleMenu.css" rel="stylesheet" type="text/css"/>
+
+<!-- Modern Glassmorphism Navbar -->
+<nav class="navbar custom-navbar navbar-fixed-top">    
+    <div class="container">
+        <!-- Logo / Brand -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand brand-box" href="${pageContext.request.contextPath}/listProduct">
+                <div class="logo-circle">
+                    E
+                </div>
+                <span class="brand-text">Emart</span>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="main-nav">
+            <!-- Search -->
+            <form action="${pageContext.request.contextPath}/searchProducts" method="get" class="navbar-form navbar-left search-form">
+                <div class="search-wrapper">
+                    <input type="text" name="keyword" class="form-control hover-input" placeholder="Search premium products..." required>
+                    <button type="submit" class="btn btn-search-icon">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+                <c:if test="${not empty requestScope.error}">
+                    <div class="search-error">${requestScope.error}</div> 
+                </c:if>
+            </form>
+
+            <!-- Right Menu -->
+            <ul class="nav navbar-nav navbar-right modern-nav-links">
+                <!-- Chưa login -->
+                <c:if test="${sessionScope.user == null}">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/login.jsp" class="btn-signup">Sign up</a>
+                    </li>
+                </c:if>
+
+                <!-- Đã login -->
+                <c:if test="${sessionScope.user != null}">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle user-menu-btn" data-toggle="dropdown">
+                            <div class="user-avatar">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            <span class="user-name">${sessionScope.user.firstName}</span>
+                            <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu modern-dropdown">
+                            <li class="dropdown-header">Welcome, ${sessionScope.user.lastName} ${sessionScope.user.firstName}</li>
+                            <li class="divider"></li>
+
+                            <c:if test="${sessionScope.role == 1 || sessionScope.role == 2}">
+                                <li><a href="${pageContext.request.contextPath}/listAccount"><span class="glyphicon glyphicon-list-alt"></span> Account Manager</a></li>
+                                <li><a href="${pageContext.request.contextPath}/listCategories"><span class="glyphicon glyphicon-tags"></span> Categories Manager</a></li>
+                                <li><a href="${pageContext.request.contextPath}/listProduct"><span class="glyphicon glyphicon-shopping-cart"></span> Product Manager</a></li>
+                                <li><a href="${pageContext.request.contextPath}/privates/list_online.jsp"><span class="glyphicon glyphicon-globe"></span> List Online</a></li>
+                                <li><a href="${pageContext.request.contextPath}/classifyAccount"><span class="glyphicon glyphicon-stats"></span> Classify Account</a></li>
+                                <li class="divider"></li>
+                            </c:if>
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/updateAccount?acc=${sessionScope.user.account}">
+                                    <span class="glyphicon glyphicon-cog"></span> Update Profile
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="${pageContext.request.contextPath}/showOrder">
+                                    <span class="glyphicon glyphicon-time"></span> Purchase History
+                                </a>
+                            </li>
+                            
+                            <li class="logout-item">
+                                <a href="${pageContext.request.contextPath}/dangxuat">
+                                    <span class="glyphicon glyphicon-log-out"></span> Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </c:if>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Spacer to prevent content from hiding under fixed navbar -->
+<div style="height: 80px;"></div>

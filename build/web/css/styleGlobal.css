@@ -1,0 +1,124 @@
+/* styleGlobal.css - Classic Navy & Beige Core */
+:root {
+    --primary: #1e3a8a; /* Deep Navy Blue */
+    --primary-hover: #172554;
+    --primary-glow: rgba(30, 58, 138, 0.15);
+    --secondary: #0ea5e9; /* Sky Blue Accent */
+    --secondary-glow: rgba(14, 165, 233, 0.1);
+    
+    --bg-deep: #f5f5dc; /* Warm Beige */
+    --bg-nebula: #fafaf0;
+    --bg-card: rgba(255, 255, 255, 0.95);
+    
+    --text-main: #1e3a8a; /* Navy Blue Text */
+    --text-muted: #64748b;
+    --text-glow: 0 0 1px rgba(30, 58, 138, 0.2);
+    
+    /* Classic Spatial Tokens */
+    --perspective: 1500px;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(30, 58, 138, 0.1);
+    --shadow-spatial: 0 15px 35px -10px rgba(30, 58, 138, 0.15);
+    --shadow-glow: 0 0 25px rgba(30, 58, 138, 0.05);
+    
+    --transition-cinematic: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-main); /* Force Navy over Black */
+}
+
+input, select, textarea, button {
+    color: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    perspective: var(--perspective);
+}
+
+/* Subtle Bright Nebula Background */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.08; /* Very low opacity for light mode */
+    pointer-events: none;
+    animation: nebulaDrift 25s infinite alternate ease-in-out;
+}
+
+body::before {
+    background: radial-gradient(circle, var(--primary), transparent 70%);
+    top: -10%; left: -10%;
+}
+
+body::after {
+    background: radial-gradient(circle, var(--secondary), transparent 70%);
+    bottom: -10%; right: -10%;
+    animation-delay: -12s;
+}
+
+@keyframes nebulaDrift {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(10%, 15%) scale(1.3); }
+}
+
+/* Cinematic Entrance - Bright Fade */
+.animate-entrance {
+    opacity: 0;
+    animation: fadeInLight 1s var(--transition-cinematic) forwards;
+}
+
+@keyframes fadeInLight {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Utility: Frosted White Glass */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-spatial);
+    border-radius: 24px;
+    transition: var(--transition-cinematic);
+}
+
+.btn-cinematic {
+    background: var(--primary);
+    color: var(--bg-deep); /* Beige Text */
+    padding: 12px 30px;
+    border-radius: 100px;
+    font-weight: 800;
+    border: none;
+    transition: var(--transition-cinematic);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: 0 8px 15px var(--primary-glow);
+}
+
+.btn-cinematic:hover {
+    background: var(--bg-deep);
+    color: var(--primary);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px var(--shadow-spatial);
+    border: 1px solid var(--primary);
+}

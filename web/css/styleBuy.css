@@ -1,0 +1,62 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 15, 2026, 11:49:12 PM
+    Author     : ASUS
+*/
+
+/* nền trang */
+body{
+    background:#f4f5f7;
+}
+
+/* box chính */
+.checkout-box,
+.product-box{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* tiêu đề */
+.checkout-box h4,
+.product-box h4{
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+/* input */
+.form-control{
+    border-radius:6px;
+}
+
+/* sản phẩm */
+.product-item{
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+/* tổng tiền */
+.total-box{
+    padding:10px 0;
+    border-top:1px solid #eee;
+    font-size:16px;
+}
+
+/* nút đặt hàng */
+.btn-primary{
+    background:#f4b400;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#e5a700;
+}
+
+/* mã giảm giá */
+.product-box input{
+    border-radius:6px;
+}

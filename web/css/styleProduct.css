@@ -1,0 +1,362 @@
+.container-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+    perspective: var(--perspective);
+}
+
+/* ===== GALAXY SPATIAL LAYOUT (Classic Navy) ===== */
+.galaxy-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 30px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 40px;
+}
+
+.hologram-sidebar {
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 150px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.hologram-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+/* Sidebar Prism (Navy Glow) */
+.prism-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    transform-style: preserve-3d;
+    animation: floatingPrism 6s infinite ease-in-out;
+}
+
+.prism {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100px; height: 100px;
+    margin-top: -50px; margin-left: -50px;
+    transform-style: preserve-3d;
+    animation: rotatePrism 15s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 100px; height: 100px;
+    background: rgba(30, 58, 138, 0.05);
+    border: 1px solid rgba(30, 58, 138, 0.2);
+    box-shadow: inset 0 0 20px rgba(30, 58, 138, 0.05);
+}
+
+.front  { transform: translateZ(50px); }
+.back   { transform: rotateY(180deg) translateZ(50px); }
+.right  { transform: rotateY(90deg) translateZ(50px); }
+.left   { transform: rotateY(-90deg) translateZ(50px); }
+.top    { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+.internal-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 40px; height: 40px;
+    background: var(--primary);
+    filter: blur(20px);
+    opacity: 0.25;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rays {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    transform: translate(-50%, -50%) translateZ(-30px);
+}
+
+/* Animations */
+@keyframes rotatePrism {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+@keyframes floatingPrism {
+    from, to { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+@keyframes pulseRays {
+    from { transform: translate(-50%, -50%) translateZ(-50px) scale(0.8); opacity: 0.2; }
+    to { transform: translate(-50%, -50%) translateZ(-50px) scale(1.3); opacity: 0.4; }
+}
+
+/* ===== CAT BAR (Classic Navy) ===== */
+.category-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 100px;
+    border: 1px solid rgba(30, 58, 138, 0.1);
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.03);
+    flex-wrap: wrap;
+}
+
+.cate-item {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 800;
+    padding: 10px 24px;
+    border-radius: 100px;
+    transition: var(--transition-cinematic);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.cate-item:hover {
+    opacity: 1;
+    background: rgba(30, 58, 138, 0.05);
+}
+
+.cate-item.active {
+    background: var(--primary);
+    color: white !important;
+    opacity: 1;
+    box-shadow: 0 8px 20px var(--primary-glow);
+}
+
+/* ===== SINGLE-ROW FILTER BAR FIX ===== */
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    background: white;
+    padding: 25px 35px;
+    border-radius: 30px;
+    border: 1px solid rgba(30, 58, 138, 0.1);
+    box-shadow: var(--shadow-spatial);
+    gap: 30px;
+}
+
+.filter-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 15px;
+    flex: 1;
+    flex-wrap: nowrap;
+}
+
+.right-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.filter-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    font-weight: 800;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.filter-bar input, .filter-bar select {
+    background: #fdfbf7;
+    border: 1px solid rgba(30, 58, 138, 0.1);
+    border-radius: 12px;
+    color: var(--primary);
+    padding: 12px 15px;
+    width: 100%;
+    transition: var(--transition-cinematic);
+}
+
+.filter-bar input:focus, .filter-bar select:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 20px var(--primary-glow);
+    outline: none;
+}
+
+.btn-filter, .btn-add-product, .btn-cart-top {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 12px;
+    font-weight: 850;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-cinematic);
+}
+
+.btn-filter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px var(--primary-glow);
+}
+
+/* ===== PRODUCT GRID (Classic Navy) ===== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 30px;
+    transition: var(--transition-cinematic);
+    border: 1px solid rgba(30, 58, 138, 0.05);
+    box-shadow: var(--shadow-spatial);
+    transform-style: preserve-3d;
+}
+
+.product-card:hover {
+    transform: translateY(-12px) rotateX(4deg) rotateY(-2deg);
+    box-shadow: 0 25px 60px rgba(30, 58, 138, 0.12);
+}
+
+.product-card a {
+    text-decoration: none;
+    color: inherit;
+    display: contents;
+}
+
+/* IMAGE POP-OUT EFFECT (Galaxy Style) */
+.image-wrapper {
+    position: relative;
+    padding: 25px;
+    background: #fdfbf7;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.imageProduct {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    transition: var(--transition-cinematic);
+    filter: drop-shadow(0 10px 15px rgba(30, 58, 138,0.05));
+    transform: translateZ(20px);
+}
+
+.product-card:hover .imageProduct {
+    transform: translateZ(60px) scale(1.05);
+}
+
+.discount-badge {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #f43f5e, #e11d48);
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 900;
+    border-radius: 100px;
+    box-shadow: 0 10px 25px rgba(225, 29, 72, 0.4);
+    transform: translateZ(50px);
+}
+
+/* PRODUCT INFO (Classic Navy) */
+.product-info {
+    padding: 30px 25px;
+    background: white;
+    transform-style: preserve-3d;
+}
+
+.product-title {
+    font-size: 17px;
+    font-weight: 850;
+    color: var(--primary);
+    margin-bottom: 20px;
+    transition: var(--transition-cinematic);
+}
+
+.price-section {
+    background: white;
+    padding: 12px 18px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(30, 58, 138, 0.05);
+}
+
+.new-price {
+    color: #b8860b; /* High-contrast Beige/Tan */
+    font-weight: 950;
+    font-size: 22px;
+}
+
+.old-price {
+    color: var(--text-muted);
+    font-size: 14px;
+    text-decoration: line-through;
+}
+
+/* ===== VIEWED SECTION ===== */
+.viewed-section {
+    margin-top: 80px;
+    padding-top: 50px;
+    border-top: 1px solid rgba(30, 58, 138, 0.1);
+}
+
+.viewed-title {
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+.viewed-product {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .container-wrapper { padding: 15px; }
+    .top-controls { flex-direction: column; align-items: stretch; border-radius: 20px; }
+    .right-actions { justify-content: space-between; margin-top: 20px; }
+    .filter-bar { gap: 15px; }
+}
+
+@media(max-width: 600px) {
+    .product-grid { grid-template-columns: 1fr; }
+    .image-wrapper { height: 250px; }
+}

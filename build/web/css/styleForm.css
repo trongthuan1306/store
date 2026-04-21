@@ -1,0 +1,144 @@
+/* Modern Form Styling */
+.form-wrapper {
+    max-width: 650px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.form-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.modern-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modern-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.modern-form .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.2s;
+    background: #f8fafc;
+    box-shadow: none;
+    height: auto;
+}
+
+.modern-form .form-control:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+    outline: none;
+}
+
+.modern-form .form-control:disabled {
+    background: #e2e8f0;
+    cursor: not-allowed;
+}
+
+.modern-form textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.modern-form .radio-group {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.modern-form .radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modern-form .radio-item input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    margin: 0;
+}
+
+.modern-form .radio-item label {
+    margin: 0;
+    font-weight: 500;
+}
+
+.modern-form .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.modern-form .checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    margin: 0;
+}
+
+.modern-form .checkbox-group label {
+    margin: 0;
+    font-weight: 600;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+
+.btn-submit:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+    transform: translateY(-2px);
+}
+
+.cancel-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #64748b;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.cancel-link:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}

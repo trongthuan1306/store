@@ -1,0 +1,75 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 2, 2026, 11:21:23 PM
+    Author     : ASUS
+*/
+
+
+/* Căn giữa toàn bộ giỏ hàng */
+.cart-container {
+    width: 70%;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Table */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cart-table th {
+    background: #343a40;
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+.cart-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Giá tiền */
+.price {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Remove button */
+.remove-btn {
+    background: #dc3545;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+/* Total */
+.total-box {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.total-price {
+    color: #e74c3c;
+}
